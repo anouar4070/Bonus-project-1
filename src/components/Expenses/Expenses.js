@@ -8,6 +8,18 @@ import ExpenseFilter from "./ExpenseFilter";
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2024");
 
+  // let filterInfoText = "2022, 2023 & 2025";
+
+  // if (filteredYear === "2022") {
+  //   filterInfoText = "2023, 2024 & 2025";
+  // } else if (filteredYear === "2024") {
+  //   filterInfoText = "2022, 2023 & 2025";
+  // } else if (filteredYear === "2023") {
+  //   filterInfoText = "2022, 2024 & 2025";
+  // } else {
+  //   filterInfoText = "2022, 2023 & 2024";
+  // }
+
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
@@ -15,7 +27,11 @@ const Expenses = (props) => {
   return (
     <div>
       <Card className="expenses">
-        <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+        <ExpenseFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
+        {/* <p>Data for years {filterInfoText} is hidden.</p> */}
         <ExpenseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
